@@ -36,9 +36,14 @@ namespace BTL_QuanLyQuanNet
             string lichsu = "insert into LICHSU (Taikhoan, Mota) values ('" + txtTaiKhoan.Text + "', N'Đã được tạo')";
             SqlCommand cmd = new SqlCommand(query, db.GetConnection());
             SqlCommand cmdLichSu = new SqlCommand(lichsu, db.GetConnection());
+
+
+
+
             cmd.ExecuteNonQuery();
             cmdLichSu.ExecuteNonQuery();
             db.dongKN();
+            MessageBox.Show("Tạo tài khoản thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Close();
         }
 

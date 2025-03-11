@@ -41,6 +41,7 @@ namespace BTL_QuanLyQuanNet
                 MessageBox.Show("Tài khoản không tồn tại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             db.dongKN();
+            MessageBox.Show("Đã được nạp 10000.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Close();
         }
     }

@@ -42,7 +42,7 @@ namespace BTL_QuanLyQuanNet
             object res = cmd.ExecuteScalar();
             if (res != null)
             {
-                if (res.ToString() != txtMatKhauCu.Text)
+                if (res.ToString().Trim() != txtMatKhauCu.Text) 
                 {
                     MessageBox.Show("Mật khẩu sai. Vui lòng nhập lại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtMatKhauCu.Text = "";
@@ -66,9 +66,13 @@ namespace BTL_QuanLyQuanNet
             }
             db.moKN();
             string query = "update KHACHHANG set Matkhau = '" + txtMatKhauMoi.Text + "' where Taikhoan = '" + txtTenDangNhap.Text + "'";
+            string LichSu = "insert into LICHSU (Taikhoan, Mota) values ('" + txtTenDangNhap.Text + "', N'Đã cập nhật mật khẩu')"; 
             SqlCommand cmd = new SqlCommand(query, db.GetConnection());
+            SqlCommand cmdLichSu = new SqlCommand(LichSu, db.GetConnection());
             cmd.ExecuteNonQuery();
+            cmdLichSu.ExecuteNonQuery();
             db.dongKN();
+            Close();
         }
     }
 }

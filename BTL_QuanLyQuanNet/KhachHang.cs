@@ -64,6 +64,7 @@ namespace BTL_QuanLyQuanNet
             SqlCommand cmd = new SqlCommand(query, db.GetConnection());
             cmd.ExecuteNonQuery();
             db.dongKN();
+            MessageBox.Show("Đã xóa tài khoản '" + txtTimkiem.Text + "' thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Load_data();
         }
 
